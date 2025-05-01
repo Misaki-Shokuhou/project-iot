@@ -1,0 +1,29 @@
+[
+  {
+    "id_smart_agriculture": 622,
+    "id_device": 15,
+    "id_user": 2,
+    "data1": "20",
+    "data2": "30",
+    "created_at": "2025-05-24T01:28:58.000000Z",
+    "updated_at": "2025-05-24T01:28:58.000000Z"
+  },
+  {
+    "id_smart_agriculture": 623,
+    "id_device": 15,
+    "id_user": 2,
+    "data1": "20",
+    "data2": "30",
+    "created_at": "2025-05-24T01:41:50.000000Z",
+    "updated_at": "2025-05-24T01:41:50.000000Z"
+  },
+  {
+    "id_smart_agriculture": 624,
+    "id_device": 15,
+    "id_user": 2,
+    "data1": "20",
+    "data2": "99",
+    "created_at": "2025-05-24T01:42:01.000000Z",
+    "updated_at": "2025-05-24T01:42:01.000000Z"
+  }
+]

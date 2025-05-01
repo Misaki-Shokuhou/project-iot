@@ -14,13 +14,18 @@ return new class extends Migration
         Schema::create('smart_agriculture', function (Blueprint $table) {
             $table->id('id_smart_agriculture');
             $table->unsignedBigInteger('id_device');
+            $table->unsignedBigInteger('id_user'); // Tambahkan kolom id_user
             $table->string('data1')->nullable();
             $table->string('data2')->nullable();
             $table->timestamps();
-    
+
+            // Foreign key ke tabel device
             $table->foreign('id_device')->references('id_device')->on('device')->onDelete('cascade');
+
+            // Foreign key ke tabel user
+            $table->foreign('id_user')->references('id_user')->on('user')->onDelete('cascade');
         });
-    }    
+    }
 
     /**
      * Reverse the migrations.

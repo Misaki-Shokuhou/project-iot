@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Unregistered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -59,10 +60,20 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Registrasi berhasil, silakan login.');
     }
 
-    public function showLoginForm()
+    public function showLoginForm(Request $request)
     {
-        return view('auth.login');
+        if (Auth::check()) {
+            return redirect('/')->with('info', 'Anda sudah login.');
+        }
+    
+        // Pastikan halaman login tidak dicache oleh browser
+        return response()
+            ->view('auth.login')
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            ->header('Pragma', 'no-cache')
+            ->header('Expires', 'Sat, 01 Jan 2000 00:00:00 GMT');
     }
+    
 
     public function login(Request $request)
     {
@@ -91,6 +102,9 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
+        session()->invalidate();
+        session()->regenerateToken();
+    
         return redirect('/login')->with('success', 'Berhasil logout.');
-    }
+    }    
 }
