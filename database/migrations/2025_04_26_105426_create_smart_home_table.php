@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('smart_home', function (Blueprint $table) {
             $table->id('id_smart_home');
             $table->unsignedBigInteger('id_device');
+<<<<<<< HEAD
             $table->unsignedBigInteger('id_user'); // Ditambahkan agar sesuai model
             $table->string('data1')->nullable();
             $table->timestamps();
@@ -25,6 +26,14 @@ return new class extends Migration
             $table->foreign('id_user')->references('id_user')->on('user')->onDelete('cascade');
         });
     }
+=======
+            $table->string('data1')->nullable();
+            $table->timestamps();
+    
+            $table->foreign('id_device')->references('id_device')->on('device')->onDelete('cascade');
+        });
+    }    
+>>>>>>> a8bc0e0b061f5b185dea85b86e4b70077253247a
 
     /**
      * Reverse the migrations.

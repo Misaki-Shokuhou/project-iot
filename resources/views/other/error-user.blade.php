@@ -54,7 +54,11 @@
     <!-- Error -->
     <div class="container-xxl container-p-y">
         <div class="misc-wrapper">
+<<<<<<< HEAD
             <h1 class="mb-2 mx-2" style="line-height: 6rem; font-size: 6rem">403</h1>
+=======
+            <h1 class="mb-2 mx-2" style="line-height: 6rem; font-size: 6rem">404</h1>
+>>>>>>> a8bc0e0b061f5b185dea85b86e4b70077253247a
             <h4 class="mb-2 mx-2">Page Not Found️ ⚠️</h4>
             <p class="mb-6 mx-2">we couldn't find the page you are looking for</p>
             <a href="/" class="btn btn-primary">Back to home</a>

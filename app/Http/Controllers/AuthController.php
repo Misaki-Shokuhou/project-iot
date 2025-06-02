@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+<<<<<<< HEAD
 use App\Models\Unregistered;
+=======
+>>>>>>> a8bc0e0b061f5b185dea85b86e4b70077253247a
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -60,6 +63,7 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Registrasi berhasil, silakan login.');
     }
 
+<<<<<<< HEAD
     public function showLoginForm(Request $request)
     {
         if (Auth::check()) {
@@ -74,6 +78,12 @@ class AuthController extends Controller
             ->header('Expires', 'Sat, 01 Jan 2000 00:00:00 GMT');
     }
     
+=======
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+>>>>>>> a8bc0e0b061f5b185dea85b86e4b70077253247a
 
     public function login(Request $request)
     {
@@ -102,9 +112,14 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
+<<<<<<< HEAD
         session()->invalidate();
         session()->regenerateToken();
     
         return redirect('/login')->with('success', 'Berhasil logout.');
     }    
+=======
+        return redirect('/login')->with('success', 'Berhasil logout.');
+    }
+>>>>>>> a8bc0e0b061f5b185dea85b86e4b70077253247a
 }

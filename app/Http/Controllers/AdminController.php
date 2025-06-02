@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Validator;
 use App\Models\Device;
 use App\Models\Unregistered;
+=======
+use App\Models\Unregistered; // pastikan ini ada, sesuaikan nama model kamu
+>>>>>>> a8bc0e0b061f5b185dea85b86e4b70077253247a
 
 class AdminController extends Controller
 {
@@ -24,6 +28,7 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $request->validate([
             'device_uid' => 'required',
             'tipe_device' => 'required',
@@ -39,11 +44,25 @@ class AdminController extends Controller
                 ->withInput();
         }
     
+=======
+        // Validasi input form
+        $request->validate([
+            'device_uid' => 'required|unique:unregistered,device_uid',
+            'tipe_device' => 'required',
+        ]);
+
+        // Simpan ke database
+>>>>>>> a8bc0e0b061f5b185dea85b86e4b70077253247a
         Unregistered::create([
             'device_uid' => $request->device_uid,
             'tipe_device' => $request->tipe_device,
         ]);
+<<<<<<< HEAD
     
+=======
+
+        // Setelah simpan, redirect kembali ke dashboard-admin
+>>>>>>> a8bc0e0b061f5b185dea85b86e4b70077253247a
         return redirect()->route('admin.index')->with('success', 'Device berhasil ditambahkan!');
     }
 
@@ -57,6 +76,7 @@ class AdminController extends Controller
     
     public function update(Request $request, string $id)
     {
+<<<<<<< HEAD
         $device = Unregistered::findOrFail($id);
     
         $request->validate([
@@ -83,13 +103,31 @@ class AdminController extends Controller
         ]);
     
         // Update data
+=======
+        // Validasi input form
+        $request->validate([
+            'device_uid' => 'required|unique:unregistered,device_uid,' . $id . ',id_unregistered',
+            'tipe_device' => 'required',
+        ]);
+    
+        // Cari device berdasarkan id
+        $device = Unregistered::findOrFail($id);
+    
+        // Update data device
+>>>>>>> a8bc0e0b061f5b185dea85b86e4b70077253247a
         $device->update([
             'device_uid' => $request->device_uid,
             'tipe_device' => $request->tipe_device,
         ]);
     
+<<<<<<< HEAD
         return redirect()->route('admin.index')->with('success', 'Device berhasil diupdate!');
     } 
+=======
+        // Redirect kembali ke dashboard-admin
+        return redirect()->route('admin.index')->with('success', 'Device berhasil diupdate!');
+    }    
+>>>>>>> a8bc0e0b061f5b185dea85b86e4b70077253247a
 
     public function destroy(string $id)
     {
